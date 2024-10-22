@@ -28,8 +28,8 @@ class AbsensiController extends Controller
         $filter = new stdClass();
         $this->setIfNotEmpty($filter, 'id_guru', $request->id_guru);
         $this->setIfNotEmpty($filter, 'id_absensi', $request->id_absensi);
+        $this->setIfNotEmpty($filter, 'siswa_id', $request->siswa_id);
         $list = $this->absensiRepository->getListAbsensi((array)$filter);
-        // dd($list);
 
         $this->output->responseCode = "00";
         $this->output->responseDesc = "Sukses inquiry List Absensi";
@@ -41,8 +41,10 @@ class AbsensiController extends Controller
     public function getAbsensi(Request $request)
     {
         $filter = new stdClass();
-        $this->setIfNotEmpty($filter, 'id_guru', $request->id_guru);
         $this->setIfNotEmpty($filter, 'id_absensi', $request->id_absensi);
+        $this->setIfNotEmpty($filter, 'kelas_id', $request->kelas_id);
+        $this->setIfNotEmpty($filter, 'guru_id', $request->guru_id);
+        $this->setIfNotEmpty($filter, 'mapel_id', $request->mapel_id);
         $list = $this->absensiRepository->getAbsensi((array)$filter);
 
         $this->output->responseCode = "00";

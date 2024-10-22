@@ -26,6 +26,7 @@ class Absensi extends Model implements AuthenticatableContract, AuthorizableCont
         'jenjang' => 'string',
         'jamMulai' => 'datetime:Y-m-d H:i:s',
         'jamAkhir' => 'datetime:Y-m-d H:i:s',
+        'done' => 'integer',
     ];
 
     /**
