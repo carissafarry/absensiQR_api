@@ -17,6 +17,11 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+$router->group(['prefix' => 'auth'], function () use ($router) {
+    $router->post('/login', 'Controller@login');
+    $router->post('/user', 'Controller@user');
+});
+
 $router->group(['prefix' => 'users'], function () use ($router) {
     $router->post('/getAll', 'UserController@getAll');
     $router->post('/getUser/{id}', 'UserController@getUser');
@@ -25,7 +30,7 @@ $router->group(['prefix' => 'users'], function () use ($router) {
     $router->post('/delete', 'UserController@delete');
 });
 
-$router->group(['prefix' => 'absensi'], function () use ($router) {
+$router->group(['prefix' =>'absensi', 'middleware' => 'auth:api'], function () use ($router) {
     $router->post('/getAll', 'AbsensiController@getAll');
     $router->post('/getAbsensi', 'AbsensiController@getAbsensi');
     $router->post('/create', 'AbsensiController@create');

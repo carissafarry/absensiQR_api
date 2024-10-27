@@ -14,6 +14,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 {
     use Authenticatable, Authorizable, HasFactory;
 
+    protected $table = 'user';
+
     protected $casts = [
         'id' => 'integer',
         'username' => 'string',
@@ -31,6 +33,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'id' => 'integer',
         'username' => 'string',
         'nama' => 'string',
+        'password' => 'string',
     ];
 
     /**
