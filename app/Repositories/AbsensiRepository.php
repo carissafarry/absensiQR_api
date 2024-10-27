@@ -25,8 +25,8 @@ class AbsensiRepository
                 'GuruUser.nama as nama_guru',
                 'MataPelajaran.mapel as mata_pelajaran',
                 'Kelas.jenjang as jenjang',
-                'Absensi.jamMulai',
-                'Absensi.jamAkhir'
+                'Absensi.jam_mulai',
+                'Absensi.jam_akhir'
             );
 
         if (!empty($filter['siswa_id'])) {
@@ -72,8 +72,8 @@ class AbsensiRepository
                 'GuruUser.nama as nama_guru',
                 'MataPelajaran.mapel as mata_pelajaran',
                 'Kelas.jenjang as jenjang',
-                'Absensi.jamMulai',
-                'Absensi.jamAkhir'
+                'Absensi.jam_mulai',
+                'Absensi.jam_akhir'
             );
 
         if (!empty($filter['id_absensi'])) {

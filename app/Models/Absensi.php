@@ -24,8 +24,8 @@ class Absensi extends Model implements AuthenticatableContract, AuthorizableCont
         'mapel_id' => 'integer',
         'mata_pelajaran' => 'string',
         'jenjang' => 'string',
-        'jamMulai' => 'datetime:Y-m-d H:i:s',
-        'jamAkhir' => 'datetime:Y-m-d H:i:s',
+        'jam_mulai' => 'datetime:Y-m-d H:i:s',
+        'jam_akhir' => 'datetime:Y-m-d H:i:s',
         'done' => 'integer',
     ];
 
@@ -44,8 +44,8 @@ class Absensi extends Model implements AuthenticatableContract, AuthorizableCont
         'mapel_id',
         // 'mata_pelajaran', // for request
         // 'jenjang', // for request
-        'jamMulai',
-        'jamAkhir',
+        'jam_mulai',
+        'jam_akhir',
     ];
 
     /**

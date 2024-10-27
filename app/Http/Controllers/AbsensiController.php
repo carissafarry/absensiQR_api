@@ -60,8 +60,8 @@ class AbsensiController extends Controller
         $absensi->kelas_id = $request->kelas_id;
         $absensi->guru_id = $request->guru_id;
         $absensi->mapel_id = $request->mapel_id;
-        $absensi->jamMulai = $request->jamMulai;
-        $absensi->jamAkhir = $request->jamAkhir;
+        $absensi->jam_mulai = $request->jam_mulai;
+        $absensi->jam_akhir = $request->jam_akhir;
         $this->absensiRepository->createAbsensi($absensi);
 
         $this->output->responseCode = '00';
@@ -75,8 +75,8 @@ class AbsensiController extends Controller
         $this->setIfNotEmpty($absensi, 'kelas_id', $request->kelas_id);
         $this->setIfNotEmpty($absensi, 'guru_id', $request->guru_id);
         $this->setIfNotEmpty($absensi, 'mapel_id', $request->mapel_id);
-        $this->setIfNotEmpty($absensi, 'jamMulai', $request->jamMulai);
-        $this->setIfNotEmpty($absensi, 'jamAkhir', $request->jamAkhir);
+        $this->setIfNotEmpty($absensi, 'jam_mulai', $request->jam_mulai);
+        $this->setIfNotEmpty($absensi, 'jam_akhir', $request->jam_akhir);
         $this->absensiRepository->updateAbsensi($absensi, $request->id_absensi);
 
         $this->output->responseCode = '00';
