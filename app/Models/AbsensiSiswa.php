@@ -14,10 +14,15 @@ class AbsensiSiswa extends Model implements AuthenticatableContract, Authorizabl
 {
     use Authenticatable, Authorizable, HasFactory;
 
+    protected $table = 'AbsensiSiswa';
+
     protected $casts = [
         'id' => 'integer',
         'siswa_id' => 'integer',
         'absensi_id' => 'integer',
+        'nama_siswa' => 'string',
+        'sudah_absen' => 'integer',
+        'created_at' => 'datetime:Y-m-d H:i:s',
     ];
 
     /**
@@ -29,6 +34,7 @@ class AbsensiSiswa extends Model implements AuthenticatableContract, Authorizabl
         'id' => 'integer',
         'siswa_id' => 'integer',
         'absensi_id' => 'integer',
+        'created_at' => 'datetime:Y-m-d H:i:s',
     ];
 
     /**

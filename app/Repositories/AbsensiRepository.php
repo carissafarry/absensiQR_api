@@ -71,6 +71,7 @@ class AbsensiRepository
                 'Kelas.nama as nama_kelas',
                 'GuruUser.nama as nama_guru',
                 'MataPelajaran.mapel as mata_pelajaran',
+                'MataPelajaran.code as code',
                 'Kelas.jenjang as jenjang',
                 'Absensi.jam_mulai',
                 'Absensi.jam_akhir'
@@ -115,7 +116,7 @@ class AbsensiRepository
     public function deleteAbsensi($filter)
     {
         $result = DB::table('Absensi')
-            ->where('id', $filter['id'])
+            ->where('id', $filter['id_absensi'])
             ->delete();
 
         return $result;

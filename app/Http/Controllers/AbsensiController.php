@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Absensi;
 use App\Repositories\AbsensiRepository;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 use stdClass;
 
 class AbsensiController extends Controller
@@ -58,7 +56,7 @@ class AbsensiController extends Controller
     {
         $absensi = new Absensi();
         $absensi->kelas_id = $request->kelas_id;
-        $absensi->guru_id = $request->guru_id;
+        $absensi->guru_id = $request->id_guru;
         $absensi->mapel_id = $request->mapel_id;
         $absensi->jam_mulai = $request->jam_mulai;
         $absensi->jam_akhir = $request->jam_akhir;
@@ -86,7 +84,7 @@ class AbsensiController extends Controller
     }
 
     public function delete(Request $request) {
-        $this->absensiRepository->deleteAbsensi(['id' => $request->id]);
+        $this->absensiRepository->deleteAbsensi(['id_absensi' => $request->id]);
 
         $this->output->responseCode = '00';
         $this->output->responseDesc = 'Sukses menghapus data Absensi';

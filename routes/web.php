@@ -22,18 +22,21 @@ $router->group(['prefix' => 'auth'], function () use ($router) {
     $router->post('/user', 'Controller@user');
 });
 
-$router->group(['prefix' => 'users'], function () use ($router) {
-    $router->post('/getAll', 'UserController@getAll');
-    $router->post('/getUser/{id}', 'UserController@getUser');
-    $router->post('/create', 'UserController@create');
-    $router->post('/update', 'UserController@update');
-    $router->post('/delete', 'UserController@delete');
-});
+$router->group(['middleware' => 'auth:api'], function () use ($router) {
+    $router->group(['prefix' => 'users'], function () use ($router) {
+        $router->post('/getAll', 'UserController@getAll');
+    });
 
-$router->group(['prefix' =>'absensi', 'middleware' => 'auth:api'], function () use ($router) {
-    $router->post('/getAll', 'AbsensiController@getAll');
-    $router->post('/getAbsensi', 'AbsensiController@getAbsensi');
-    $router->post('/create', 'AbsensiController@create');
-    $router->post('/update', 'AbsensiController@update');
-    $router->post('/delete', 'AbsensiController@delete');
+    $router->group(['prefix' =>'absensi'], function () use ($router) {
+        $router->post('/getAll', 'AbsensiController@getAll');
+        $router->post('/getAbsensi', 'AbsensiController@getAbsensi');
+        $router->post('/create', 'AbsensiController@create');
+        $router->post('/update', 'AbsensiController@update');
+        $router->post('/delete', 'AbsensiController@delete');
+    });
+
+    $router->group(['prefix' => 'dataabsensi'], function () use ($router) {
+        $router->post('/getAll', 'AbsensiSiswaController@getAll');
+        $router->post('/doAbsensi', 'AbsensiSiswaController@doAbsensi');
+    });
 });

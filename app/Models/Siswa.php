@@ -14,6 +14,8 @@ class Siswa extends Model implements AuthenticatableContract, AuthorizableContra
 {
     use Authenticatable, Authorizable, HasFactory;
 
+    protected $table = 'siswa';
+
     protected $casts = [
         'id' => 'integer',
         'kelas_id' => 'integer',

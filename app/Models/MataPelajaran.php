@@ -14,9 +14,12 @@ class MataPelajaran extends Model implements AuthenticatableContract, Authorizab
 {
     use Authenticatable, Authorizable, HasFactory;
 
+    protected $table = 'MataPelajaran';
+
     protected $casts = [
         'id' => 'integer',
         'mapel' => 'string',
+        'code' => 'string',
     ];
 
     /**
@@ -27,6 +30,7 @@ class MataPelajaran extends Model implements AuthenticatableContract, Authorizab
     protected $fillable = [
         'id' => 'integer',
         'mapel' => 'string',
+        'code' => 'string',
     ];
 
     /**

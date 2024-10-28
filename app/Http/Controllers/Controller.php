@@ -48,9 +48,12 @@ class Controller extends BaseController
                     Cookie::queue(Cookie::make($cookieName, Date::now(), 1440));
                 }
 
+                $token = $user->api_token;
+                unset($user->api_token);
+
                 $this->output->responseCode = "00";
                 $this->output->responseDesc = "Sukses login";
-                $this->output->responseData = ['token' => $user->api_token];
+                $this->output->responseData = ['token' => $token, 'user' => $user];
                 return response()->json($this->output);
             }
         }
